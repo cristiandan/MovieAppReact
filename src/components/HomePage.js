@@ -4,9 +4,9 @@ import React from 'react';
 import Movie from './Movie';
 
 const HomePage = (props) => {
-  const { movies, router } = props;
+  const { movies, history } = props;
   const onClickMovie = (id) => {
-      router.push('/movie/' + id);
+      history.push('/movie/' + id);
   };
   let moviesList = movies.moviesList.map(item => (<Movie 
       key={item.id}

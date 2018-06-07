@@ -1,18 +1,19 @@
 import React from 'react';
 import Image from 'grommet/components/Image';
 import { IMAGE_URL, YOUTUBE_VIDEO_URL } from '../constants/endpoints';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 class MovieDetails extends React.Component {
     componentWillMount() {
-        this.props.loadDetails(this.props.routeParams.id);
+        const movieId = this.props.location.pathname.substring(7)
+        this.props.loadDetails(movieId);
     }
     render() {
-        console.log('pp', this.props);
         let content;
+        const movieId = this.props.location.pathname.substring(7)
         if (this.props.movieDetails
             && this.props.movieDetails.movieDetails
-            && this.props.movieDetails.movieDetails.id === parseInt(this.props.routeParams.id)) {
+            && this.props.movieDetails.movieDetails.id === parseInt(movieId)) {
             const details = this.props.movieDetails.movieDetails;
             
             let video = "";

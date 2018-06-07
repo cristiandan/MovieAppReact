@@ -1,15 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import routes from '../routes';
-import { Router } from 'react-router';
+import App from './App';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import HomePage from '../containers/HomePageContainer';
+import NotFoundPage from '../components/NotFoundPage';
+import SearchPage from '../containers/SearchPageContainer';
+import MovieDetails from '../containers/MovieDetailsContainer';
 
 export default class Root extends Component {
   render() {
-    const { store, history } = this.props;
+    const { store } = this.props;
     return (
       <Provider store={store}>
-        <Router history={history} routes={routes} />
+        <div>
+          <BrowserRouter>
+            <div>
+              <App />
+              <Switch>
+                  <Route exact path="/" component={HomePage}/>
+                  <Route exact path="/search" component={SearchPage}/>
+                  <Route exact path="/movie/:id" component={MovieDetails} />
+                  <Route component={NotFoundPage}/>
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </div>
       </Provider>
     );
   }
@@ -17,5 +34,4 @@ export default class Root extends Component {
 
 Root.propTypes = {
   store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
 };
