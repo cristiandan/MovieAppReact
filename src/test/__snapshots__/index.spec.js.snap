@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The app can render 1`] = `
+<div>
+  <div>
+    <div>
+      <a
+        href="/"
+        id="homelink"
+      >
+        Home
+      </a>
+       | 
+      <a
+        href="/search"
+        id="searchlink"
+      >
+        Search
+      </a>
+       | 
+      <a
+        href="/about"
+        id="aboutlink"
+      >
+        About
+      </a>
+      <br>
+        
+      </br>
+    </div>
+    <div>
+      <h4>
+        404 Page Not Found
+      </h4>
+      <a
+        href="/"
+      >
+         Go back to homepage 
+      </a>
+    </div>
+  </div>
+</div>
+`;
